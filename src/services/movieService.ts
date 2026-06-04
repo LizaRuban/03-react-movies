@@ -2,7 +2,7 @@ import type { Movie } from '../types/movie.ts';
 const token = import.meta.env.VITE_TMDB_TOKEN;
 import axios from 'axios';
 
-export async function searchMovies(query: string) {
+export async function searchMovies(query: string): Promise<Movie[]> {
   const response = await axios.get<{ results: Movie[] }>(
     'https://api.themoviedb.org/3/search/movie',
     {
